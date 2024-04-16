@@ -1,7 +1,17 @@
 <?php
+
+require __DIR__ . '/data/function.php';
+
+$password_user = '';
+
 if (isset($_GET['p_length'])) {
-    session_start();
-    $_SESSION['password_length'] = $_GET['p_length'];
+    // session_start();
+    // $_SESSION['password_length'] = $_GET['p_length'];
+    if (getRandomPass($_GET['p_length'])) {
+        $password_user = 'nuovaPassword';
+    } else {
+        $password_user = 'Nessun parametro valido inserito';
+    }
 }
 
 
@@ -20,7 +30,7 @@ require_once __DIR__ . '/partials/head.php';
             <div class="container">
                 <div class="row mt-4 border border-2">
                     <div class="col res-password py-4 px-3">
-                        Nessun parametro valido inserito
+                        <?php echo $password_user ?>
                     </div>
                 </div>
                 <div class="row mt-3 border border-2 compilation">
