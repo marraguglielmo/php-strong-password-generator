@@ -16,7 +16,7 @@ if (isset($_GET['p_length'])) {
     // session_start();
     // $_SESSION['password_length'] = $_GET['p_length'];
     if (getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers)) {
-        $password_user = 'nuovaPassword';
+        $password_user = $randPassword;
     } else {
         $password_user = 'Nessun parametro valido inserito';
     }
