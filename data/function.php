@@ -12,10 +12,10 @@ function getRandomPass($password_length, $symbols, $lettersMin, $lettersMai, $nu
         for ($i = 1; $i <= $password_length; $i++) {
             // estraggo l'indice casuale
             $randIndex = array_rand($allCharacters);
-            var_dump($randIndex);
+            // var_dump($randIndex);
             $randPassword .= $allCharacters[$randIndex];
         }
-        var_dump($randPassword);
+        // var_dump($randPassword);
     }
 
     return $password ? $randPassword : false;
