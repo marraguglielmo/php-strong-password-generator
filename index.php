@@ -13,8 +13,9 @@ $numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 $password_user = '';
 
 if (isset($_GET['p_length'])) {
-    if (getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers)) {
-        $password_user = getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers);
+    $getPassword = getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers);
+    if ($getPassword) {
+        $password_user = $getPassword;
     } else {
         $password_user = 'Nessun parametro valido inserito';
     }
@@ -35,7 +36,7 @@ require_once __DIR__ . '/partials/head.php';
             </div>
             <div class="container">
                 <div class="row mt-4 border border-2">
-                    <div class="col res-password py-4 px-3">
+                    <div class="col res-password py-4 px-3 fs-5">
                         <?php echo $password_user ?>
                     </div>
                 </div>
