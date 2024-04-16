@@ -13,10 +13,8 @@ $numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 $password_user = '';
 
 if (isset($_GET['p_length'])) {
-    // session_start();
-    // $_SESSION['password_length'] = $_GET['p_length'];
     if (getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers)) {
-        $password_user = $randPassword;
+        $password_user = getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers);
     } else {
         $password_user = 'Nessun parametro valido inserito';
     }
