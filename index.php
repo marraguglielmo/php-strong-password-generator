@@ -2,12 +2,20 @@
 
 require __DIR__ . '/data/function.php';
 
+$symbols = ['!', '?', '&', "'", '%', '$', '<', '>', '^', '+', '-', '*', '/', '(', ')', '[', ']', '{', '}', '@', '#', '_', '='];
+
+$lettersMin = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "u", "v", "w", "x", "y", "z"];
+
+$lettersMai = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "U", "V", "W", "X", "Y", "Z"];
+
+$numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 $password_user = '';
 
 if (isset($_GET['p_length'])) {
     // session_start();
     // $_SESSION['password_length'] = $_GET['p_length'];
-    if (getRandomPass($_GET['p_length'])) {
+    if (getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers)) {
         $password_user = 'nuovaPassword';
     } else {
         $password_user = 'Nessun parametro valido inserito';
@@ -64,7 +72,7 @@ require_once __DIR__ . '/partials/head.php';
                             <!-- buttons -->
                             <div class="buttons d-block">
                                 <button class="btn btn-primary" type="submit">Invia</button>
-                                <button class="btn btn-danger" type="submit">Annulla</button>
+                                <button class="btn btn-danger" type="reset">Annulla</button>
                             </div>
                         </div>
                     </form>
