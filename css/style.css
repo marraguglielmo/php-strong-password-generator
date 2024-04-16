@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+body{
+background: linear-gradient(to bottom, #536976, #BBD2C5); 
+
+
+    height: 100vh;
+    color: white;
+}
+
+h1{
+    color: rgb(199, 208, 228);
+}
+
 section{
     min-width: 700px;
     .container{
@@ -12,6 +24,9 @@ section{
             border-radius: 10px;
             .col > div > div:last-child{
                 width: 30%;
+            }
+            .col > div > div:first-child{
+                width: 60%;
             }
         }
         .compilation{

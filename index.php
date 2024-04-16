@@ -13,12 +13,15 @@ $numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 $password_user = '';
 
 if (isset($_GET['p_length'])) {
+    session_start();
     $getPassword = getRandomPass($_GET['p_length'], $symbols, $lettersMin, $lettersMai, $numbers);
     if ($getPassword) {
         $password_user = $getPassword;
     } else {
         $password_user = 'Nessun parametro valido inserito';
     }
+    $_SESSION['pass_user'] = $password_user;
+    header('Location: ./password_page.php');
 }
 
 
@@ -26,20 +29,20 @@ require_once __DIR__ . '/partials/head.php';
 
 ?>
 
-<body>
+<body class="text-white">
     <section>
 
         <div class="container-lg m-auto">
             <div class="text-center ">
-                <h1 class="mt-4 mb-1">Strong Password generator</h1>
-                <h2>Genera una password sicura</h2>
+                <h1 class="mt-4 mb-1 fw-bold">Strong Password generator</h1>
+                <h2 class="fw-semibold">Genera una password sicura</h2>
             </div>
             <div class="container">
-                <div class="row mt-4 border border-2">
-                    <div class="col res-password py-4 px-3 fs-5">
-                        <?php echo $password_user ?>
-                    </div>
-                </div>
+
+
+
+
+
                 <div class="row mt-3 border border-2 compilation">
                     <form action="index.php" method="GET">
                         <div class="col py-4 ps-3">
